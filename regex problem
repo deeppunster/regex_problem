@@ -1,0 +1,23 @@
+Regular expression to try
+
+    assn_unit = re.compile(r"""
+        (?P<any>any4?)                                       # "any"
+                                                             #   association
+        |                                                    # or
+        (?P<object_eq>object ([\w-]+) eq (\d+))             # object
+        alone
+                                                             #   association
+        |                                                    # or
+        (?P<object_range>object ([a-z0-9A-Z-]+) range (\d+) (\d+)) # object range
+                                                             #   association
+        |                                                    # or
+        (?P<object_group>object-group ([a-z0-9A-Z-]+))             # object group
+                                                             #   association
+        |                                                    # or
+        (?P<object_alone>object ([[a-z0-9A-Z-]+))                   # object alone
+                                                             #   association
+    """, re.VERBOSE)
+    
+String to search
+
+    object-group jfi-ip-ranges object DA-TD-WEB01 eq 8850
